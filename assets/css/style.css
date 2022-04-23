@@ -76,3 +76,7 @@ textarea {
     font-size: 25px;
     padding-right: 35%;
 }
+
+.container {
+    box-shadow: 10px 5px 20px black;
+}

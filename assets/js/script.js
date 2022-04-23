@@ -26,4 +26,21 @@ var checkPastPresentFuture = function() {
     })
 }
 
+// <p> to <input>
+$(".row").click(function() {
+    let currTarget = $(':nth-child(2) p', this);
+    let currTargetTxt = currTarget.text().trim();
+    let textInput = $("<input>").addClass("form-control").val(currTargetTxt);
+    currTarget.replaceWith(textInput);
+    // console.log(currTargetTxt);
+});
+
+//<input> to <p>
+$(".row").on("blur", "input", function() {
+    let currTarget = $(":nth-child(2) input");
+    let userTxt = currTarget.val();
+    let pTag = $("<p>").text(userTxt);
+    currTarget.replaceWith(pTag);
+});
+
 checkPastPresentFuture();
