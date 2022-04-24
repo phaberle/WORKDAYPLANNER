@@ -2,6 +2,7 @@
 ## Introduction
 WorkDayPlanner is a single-day scoped application with CRUD to localStorage for normal business hours 9AM - 5PM. The application refreshes every 15 minutes to color code the time of day using the user's PC clock. The color coding is: gray=past, red=present, green = future. User is presented with the current date (dynamic) under the title. User may clear all events after that day's events have expired with button. This is an assignment from the UT Austin coding boot camp. 
 <p>
+
 ## Technologies
 <li>HTML5
 <li>JavaScript 1.7
@@ -13,11 +14,13 @@ WorkDayPlanner is a single-day scoped application with CRUD to localStorage for 
 
 ## Links
 <p>
-<li>[Website](https://phaberle.github.io/WORKDAYPLANNER/)
-<li>[Repository](https://github.com/phaberle/WORKDAYPLANNER.git)
+<li>Application: https://phaberle.github.io/WORKDAYPLANNER/
+<li>Repository : https://github.com/phaberle/WORKDAYPLANNER.git
 </p>
 
+
 ![WorkDayPlanner Landing Page](./assets/images/picture01.png)
+
 
 ## Instructions
 <p>
