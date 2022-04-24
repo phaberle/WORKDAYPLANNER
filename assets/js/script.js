@@ -1,8 +1,4 @@
 var today = moment(new Date()).format("dddd, MMMM Do");
-var x = moment(new Date()).format("H");
-// console.log(parseInt(x));
-
-// console.log(typeof(x));
 $(document).ready(function() {
     $("#currentDay").text(today);
 });
@@ -27,20 +23,36 @@ var checkPastPresentFuture = function() {
 }
 
 // <p> to <input>
-$(".row").click(function() {
-    let currTarget = $(':nth-child(2) p', this);
+$(".description").click(function() {
+    console.log("son of a bitch");
+    let currTarget = $('p', this);
     let currTargetTxt = currTarget.text().trim();
-    let textInput = $("<input>").addClass("form-control").val(currTargetTxt);
-    currTarget.replaceWith(textInput);
-    // console.log(currTargetTxt);
+    if (currTargetTxt.length > 0) {
+        let textInput = $("<input>").addClass("form-control").val(currTargetTxt);
+        currTarget.replaceWith(textInput);
+    } else {
+        let textInput = $("<input>").addClass("form-control").val(currTargetTxt).attr("placeholder", "Type new task/event here.");
+        currTarget.replaceWith(textInput);
+    }
 });
 
 //<input> to <p>
-$(".row").on("blur", "input", function() {
+$(".row").on("mouseleave", "input", function() {
     let currTarget = $(":nth-child(2) input");
     let userTxt = currTarget.val();
     let pTag = $("<p>").text(userTxt);
     currTarget.replaceWith(pTag);
 });
+
+/*LOCAL STORAGE CRUD*/
+
+$(".saveBtn").click(function() {
+    let parentNumber = $(this).parent().data("hour");
+    let arrayName = "_" + parentNumber;
+    let arrayContent = $(this).siblings('div').find('p').text().trim();
+    let derivedArray = eval(arrayName + "=[\"" + arrayContent + "\"];");
+    localStorage.setItem("\"" + arrayName + "\"", JSON.stringify(derivedArray));
+});
+
 
 checkPastPresentFuture();
