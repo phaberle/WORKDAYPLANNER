@@ -54,5 +54,17 @@ $(".saveBtn").click(function() {
     localStorage.setItem("\"" + arrayName + "\"", JSON.stringify(derivedArray));
 });
 
+var loadFromLocalStorage = function() {
+    $(".row").each(function(i) {
+        let rowHour = $(this).data("hour");
+        let derivedArrayName = "_" + rowHour;
+        let objectFromLocalStorage = localStorage.getItem("\"" + derivedArrayName + "\"");
+        let textFromObj = JSON.parse(objectFromLocalStorage);
+        $(this).find("p").text(textFromObj);
+    })
+};
+
+
 
 checkPastPresentFuture();
+loadFromLocalStorage();
