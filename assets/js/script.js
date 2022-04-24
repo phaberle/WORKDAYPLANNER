@@ -22,9 +22,8 @@ var checkPastPresentFuture = function() {
     })
 }
 
-// <p> to <input>
+// event <p> to <input>
 $(".description").click(function() {
-    console.log("son of a bitch");
     let currTarget = $('p', this);
     let currTargetTxt = currTarget.text().trim();
     if (currTargetTxt.length > 0) {
@@ -36,7 +35,7 @@ $(".description").click(function() {
     }
 });
 
-//<input> to <p>
+//event <input> to <p>
 $(".row").on("mouseleave", "input", function() {
     let currTarget = $(":nth-child(2) input");
     let userTxt = currTarget.val();
@@ -45,7 +44,6 @@ $(".row").on("mouseleave", "input", function() {
 });
 
 /*LOCAL STORAGE CRUD*/
-
 $(".saveBtn").click(function() {
     let parentNumber = $(this).parent().data("hour");
     let arrayName = "_" + parentNumber;
@@ -64,7 +62,18 @@ var loadFromLocalStorage = function() {
     })
 };
 
+$("#clearBtn").click(function() {
+    if (window.confirm("Are you sure you want to ERASE all events?")) {
+        localStorage.clear();
+        loadFromLocalStorage();
+    };
+});
+/*END CRUD */
 
+//refresh page every 15 mins to change hour color coding
+setInterval(function() {
+    location.reload();
+}, 900000);
 
 checkPastPresentFuture();
 loadFromLocalStorage();
